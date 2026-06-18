@@ -1,4 +1,4 @@
-# 🎵 Hit Song Prediction — Prédire les tubes musicaux à partir des données Spotify
+# 🎵 Hit Song Prediction - Prédire les tubes musicaux à partir des données Spotify
 
 Projet de Machine Learning (M1 IDD) visant à prédire si une chanson va devenir un *hit* à partir de ses seules caractéristiques audio.
 
@@ -17,9 +17,9 @@ Une maison de disques ou un dénicheur de talents (A&R) aimerait pouvoir repére
 1. **Nettoyage** : déduplication par `track_id`, traitement des valeurs manquantes.
 2. **Analyse exploratoire (EDA)** : distributions, corrélations avec la cible, comparaison des features par classe, projection PCA en 2D pour visualiser la séparabilité des classes.
 3. **Préparation des données** : encodage One-Hot des genres musicaux, transformations log1p sur les variables très asymétriques (instrumentalness, acousticness, liveness), séparation train/test stratifiée (80/20).
-4. **Modélisation** — 6 algorithmes comparés par validation croisée (10 folds, score F1 comme métrique principale car l'accuracy est trompeuse sur un dataset déséquilibré) :
+4. **Modélisation** - 6 algorithmes comparés par validation croisée (10 folds, score F1 comme métrique principale car l'accuracy est trompeuse sur un dataset déséquilibré) :
    - Régression Logistique, k-NN, Naive Bayes, Arbre de décision, Random Forest, HistGradientBoosting
-5. **Gestion du déséquilibre des classes** : comparaison de trois approches — `class_weight='balanced'`, Random Undersampling, et SMOTE — pour déterminer laquelle généralise le mieux sur le test set.
+5. **Gestion du déséquilibre des classes** : comparaison de trois approches (`class_weight='balanced'`, Random Undersampling, et SMOTE) pour déterminer laquelle généralise le mieux sur le test set.
 6. **Évaluation finale** sur le test set (jamais utilisé avant cette étape) : courbes ROC, matrices de confusion, rapport de classification complet.
 
 ## Résultats clés
@@ -35,9 +35,9 @@ Une maison de disques ou un dénicheur de talents (A&R) aimerait pouvoir repére
 | Balanced Random Forest | 0.729 | 0.622 | 0.751 | 0.623 |
 
 - Le **Random Forest** obtient le meilleur F1 test (0.636) grâce à son mécanisme d'ensemble.
-- Le **Balanced Random Forest** atteint un rappel de **0.82** sur la classe "Hit" — particulièrement utile pour un cas d'usage de type "détection de talents", où l'on préfère ne manquer aucun hit potentiel.
+- Le **Balanced Random Forest** atteint un rappel de **0.82** sur la classe "Hit", particulièrement utile pour un cas d'usage de type "détection de talents", où l'on préfère ne manquer aucun hit potentiel.
 - L'encodage One-Hot des genres musicaux s'est révélé être le levier de performance le plus important.
-- La régression logistique, malgré sa simplicité, reste compétitive — preuve que les features audio linéarisent bien une partie du problème.
+- La régression logistique, malgré sa simplicité, reste compétitive, preuve que les features audio linéarisent bien une partie du problème.
 
 ## Limites et perspectives
 
@@ -51,6 +51,6 @@ Python · pandas · scikit-learn · imbalanced-learn · matplotlib · scipy
 
 ## Contenu du dépôt
 
-- `hit_song_prediction.ipynb` — notebook complet (EDA, modélisation, évaluation)
-- `ML project.pdf` — support de présentation
-- `MLproject.pdf` — rapport détaillé du projet
+- `hit_song_prediction.ipynb` - notebook complet (EDA, modélisation, évaluation)
+- `ML project.pdf` - support de présentation
+- `MLproject.pdf` - rapport détaillé du projet
